@@ -9,21 +9,44 @@ public class Book {
     private String bookAuthor;
     private String publicationYear;
     private String isbnNumber;
-    //private boolean borrowBook;
+    //added the variable below - not sure if I was supposed to do this or not
+    private String bookAvailable;
+    private boolean inStock;
     ArrayList<Book> books;
 
+    public String getBookAvailable() {
+        return bookAvailable;
+    }
+
+    public void setBookAvailable(String bookAvailable) {
+        this.bookAvailable = bookAvailable;
+    }
+
+
+
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
+    }
+
+
     //overloaded constructor
-    public Book(String bookTitle, String bookAuthor, String publicationYear, String isbnNumber) {
+    public Book(String bookTitle, String bookAuthor, String publicationYear, String isbnNumber, String bookAvailable) {
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
         this.publicationYear = publicationYear;
         this.isbnNumber = isbnNumber;
+        this.bookAvailable= bookAvailable;
         books = new ArrayList<>();
     }
 
     //default constructor
-    public Book (){
+    public Book() {
         books = new ArrayList<>();
+        inStock = true;
 
     }
 
@@ -59,10 +82,12 @@ public class Book {
         this.isbnNumber = isbnNumber;
     }
 
-        public ArrayList<Book> getBooks(){
-            return books;
-        }
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+}
 
+      /*
         public void setLibraries(ArrayList<Book> books) {
         this.books = books;
     }
@@ -71,4 +96,4 @@ public class Book {
         this.books.add(b);
     }
 }
-
+*/

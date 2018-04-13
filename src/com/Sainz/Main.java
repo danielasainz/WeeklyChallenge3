@@ -1,38 +1,5 @@
 package com.Sainz;
 
-/*
-You are going to create an application for a library.
-        It will be a console application, with the following menu items:
-
-
-        - List books
-
-        - Add a book
-
-        - Borrow a book
-
-
-        Listing books:
-
-        Show a list of all books, and indicate whether they have been borrowed or not.
-
-        Adding books:
-
-        To add a book, you must enter the following information about it:
-
-        Title
-
-        Author
-
-        Year of Publication
-
-        ISBN Number
-
-
-        Borrowing books
-
-        Show a list of available books (books that have not been borrowed yet), and allow a user to borrow the book.
-        */
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -59,29 +26,6 @@ public class Main {
             switch (Integer.valueOf(keyboard.nextLine())) {
                 case 1:
 
-                  /*
-
-                     newEvent = new Event();
-            System.out.println("Enter the event number: ");
-            newEvent.setEventNumber(keyboard.nextInt());
-            eventAnswer = keyboard.nextLine();
-
-            System.out.println("Enter the event name: ");
-            newEvent.setEventName(keyboard.nextLine());
-
-            System.out.println("Enter the event start date: ");
-            newEvent.setStartDate(keyboard.nextLine());
-
-            System.out.println("Enter the event end date: ");
-            newEvent.setEndDate(keyboard.nextLine());
-
-
-            System.out.println("Your event information: ");
-            System.out.println("Event number: " + newEvent.getEventNumber() + '\n' + "Event name: " + newEvent.getEventName()
-                    + '\n' + "Event start date: " + newEvent.getStartDate() + '\n' + "Event end date: " + newEvent.getEndDate());
-
-
-                   */
                     do {
                         newBook = new Book();
                         System.out.println("Add a book");
@@ -98,9 +42,13 @@ public class Main {
                         System.out.println("Enter the book's ISBN number: ");
                         newBook.setIsbnNumber(keyboard.nextLine());
 
+                        System.out.println("Enter if the book is available or not: ");
+                        newBook.setBookAvailable(keyboard.nextLine());
+
                         System.out.println("Your book information: ");
                         System.out.println("Book title: " + newBook.getBookTitle() + '\n' + "Book author: " + newBook.getBookAuthor()
-                                + '\n' + "Book publication year: " + newBook.getPublicationYear() + '\n' + "Book ISBN number: " + newBook.getIsbnNumber());
+                                + '\n' + "Book publication year: " + newBook.getPublicationYear() + '\n' + "Book ISBN number: " + newBook.getIsbnNumber() +  '\n' + "Is book available: " + newBook.getBookAvailable());
+
 
                         books.add(newBook);
                         System.out.println('\n' + "Add another book?");
@@ -109,14 +57,30 @@ public class Main {
                             addanother = false;
                     } while (addanother);
                     break;
+                case 2:
+                boolean available = true;
+                for (Book eachBook:books) {
+                    available = eachBook.isInStock();
+                    if (available) {
+                        eachBook.setInStock(false);
+                    }
+                }
+                System.out.println("Enter the title of the book you would like to borrow");
+                keyboard.nextLine();
 
+                       System.out.println("You borrowed the following book:");
+                    break;
+                case 3:
+
+                    break;
                 case 4:
                     System.out.println("Show everything");
                     System.out.println("------------");
                     System.out.println("*** Books ***");
                     for (Book bk : books
                             ) {
-                        System.out.println('\n' + "Book title: " + bk.getBookTitle() + '\n' + "Book author: " + bk.getBookAuthor() + '\n' + "Publication year: " + bk.getPublicationYear() + '\n' + "ISBN Number: " + bk.getIsbnNumber());
+                        System.out.println('\n' + "Book title: " + bk.getBookTitle() + '\n' + "Book author: " + bk.getBookAuthor() + '\n' + "Publication year: " + bk.getPublicationYear() + '\n' + "ISBN Number: " + bk.getIsbnNumber()
+                        + '\n' + "Book available: " +bk.getBookAvailable());
                     }
                     break;
             }
@@ -133,22 +97,9 @@ public class Main {
     public static void showMenu() {
         System.out.println("Please consider the following menu options:");
         System.out.println("1. Add a book");
+        System.out.println("2. Borrow a book");
+        System.out.println("3. Return a book");
         System.out.println("4. Show books in the library");
     }
     }
 
-            /*
-        }
-            public static void showMenu() {
-                System.out.println("1. Add a book");
-                System.out.println("4. Show everything");
-            }
-            public static void showBooks(ArrayList<Book> books){
-            for (Book book : books
-                    ){
-                System.out.println(book.getBookTitle());
-            }
-        }
-    }
-}
-*/
