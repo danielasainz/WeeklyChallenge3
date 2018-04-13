@@ -8,7 +8,6 @@ public class Book {
     private String bookAuthor;
     private String publicationYear;
     private String isbnNumber;
-    //added the variable below - not sure if I was supposed to do this or not
     private boolean inStock;
     ArrayList<Book> books;
 
