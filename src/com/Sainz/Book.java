@@ -9,19 +9,8 @@ public class Book {
     private String publicationYear;
     private String isbnNumber;
     //added the variable below - not sure if I was supposed to do this or not
-    private String bookAvailable;
     private boolean inStock;
     ArrayList<Book> books;
-
-    public String getBookAvailable() {
-        return bookAvailable;
-    }
-
-    public void setBookAvailable(String bookAvailable) {
-        this.bookAvailable = bookAvailable;
-    }
-
-
 
     public boolean isInStock() {
         return inStock;
@@ -38,7 +27,6 @@ public class Book {
         this.bookAuthor = bookAuthor;
         this.publicationYear = publicationYear;
         this.isbnNumber = isbnNumber;
-        this.bookAvailable= bookAvailable;
         books = new ArrayList<>();
     }
 

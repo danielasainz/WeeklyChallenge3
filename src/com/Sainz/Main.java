@@ -41,12 +41,9 @@ public class Main {
                         System.out.println("Enter the book's ISBN number: ");
                         newBook.setIsbnNumber(keyboard.nextLine());
 
-                        System.out.println("Enter if the book is available or not: ");
-                        newBook.setBookAvailable(keyboard.nextLine());
-
                         System.out.println("Your book information: ");
                         System.out.println("Book title: " + newBook.getBookTitle() + '\n' + "Book author: " + newBook.getBookAuthor()
-                                + '\n' + "Book publication year: " + newBook.getPublicationYear() + '\n' + "Book ISBN number: " + newBook.getIsbnNumber() +  '\n' + "Is book available: " + newBook.getBookAvailable());
+                                + '\n' + "Book publication year: " + newBook.getPublicationYear() + '\n' + "Book ISBN number: " + newBook.getIsbnNumber());
 
 
                         books.add(newBook);
@@ -58,16 +55,18 @@ public class Main {
                     break;
                 case 2:
                 boolean available = true;
-                for (Book eachBook:books) {
-                    available = eachBook.isInStock();
-                    if (available) {
-                        eachBook.setInStock(false);
-                    }
-                }
-                System.out.println("Enter the title of the book you would like to borrow");
-                keyboard.nextLine();
 
-                       System.out.println("You borrowed the following book:");
+                System.out.println("Enter the title of the book you would like to borrow");
+                String borrow = keyboard.nextLine();
+
+                    for (Book eachBook:books) {
+                        if (borrow.equalsIgnoreCase(eachBook.getBookTitle())){
+                            eachBook.setInStock(false);
+                            System.out.println("You have borrowed "+eachBook.getBookTitle());
+                        }
+
+                    }
+
                     break;
                 case 3:
 
@@ -78,8 +77,7 @@ public class Main {
                     System.out.println("*** Books ***");
                     for (Book bk : books
                             ) {
-                        System.out.println('\n' + "Book title: " + bk.getBookTitle() + '\n' + "Book author: " + bk.getBookAuthor() + '\n' + "Publication year: " + bk.getPublicationYear() + '\n' + "ISBN Number: " + bk.getIsbnNumber()
-                        + '\n' + "Book available: " +bk.getBookAvailable());
+                        System.out.println('\n' + "Book title: " + bk.getBookTitle() + '\n' + "Book author: " + bk.getBookAuthor() + '\n' + "Publication year: " + bk.getPublicationYear() + '\n' + "ISBN Number: " + bk.getIsbnNumber());
                     }
                     break;
             }
