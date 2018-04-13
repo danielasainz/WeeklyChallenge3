@@ -1,6 +1,5 @@
 package com.Sainz;
 
-//event object class in fi's example
 
 import java.util.ArrayList;
 
@@ -86,14 +85,3 @@ public class Book {
         return books;
     }
 }
-
-      /*
-        public void setLibraries(ArrayList<Book> books) {
-        this.books = books;
-    }
-    public void addLibrary (Book b)
-    {
-        this.books.add(b);
-    }
-}
-*/

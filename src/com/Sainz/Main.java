@@ -19,7 +19,6 @@ public class Main {
 
         do {
             addanother = true;
-            //where does showMenu come in below
             showMenu();
             System.out.println("Enter a menu number");
 
